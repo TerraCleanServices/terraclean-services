@@ -161,6 +161,7 @@ function App() {
     message: '',
   })
   const [imageError, setImageError] = useState('')
+  const [showPromoBanner, setShowPromoBanner] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitState, setSubmitState] = useState({ type: '', message: '' })
 
@@ -248,6 +249,33 @@ function App() {
 
   return (
     <div className="page">
+      {showPromoBanner ? (
+        <div
+          className="promo-banner"
+          role="region"
+          aria-label="Frühlingsaktion"
+        >
+          <div className="container promo-banner-inner">
+            <span className="promo-badge">Frühlingsaktion</span>
+            <p className="promo-text">
+              <strong>20% Frühlingsrabatt</strong> auf Terrassen- &amp; Aussenreinigung – gültig bis <strong>31. Mai</strong>.
+            </p>
+            <div className="promo-actions">
+              <a className="promo-link" href="#kontakt">
+                Jetzt Offerte anfordern
+              </a>
+              <button
+                type="button"
+                className="promo-close"
+                aria-label="Banner schließen"
+                onClick={() => setShowPromoBanner(false)}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <header className="header">
         <div className="container nav">
           <a href="#hero" className="brand">
