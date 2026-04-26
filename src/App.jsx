@@ -162,6 +162,7 @@ function App() {
   })
   const [imageError, setImageError] = useState('')
   const [showPromoBanner, setShowPromoBanner] = useState(true)
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitState, setSubmitState] = useState({ type: '', message: '' })
 
@@ -288,10 +289,51 @@ function App() {
             <a href="#über-uns">Über uns</a>
             <a href="#faq">FAQ</a>
           </nav>
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={isMobileNavOpen ? 'Menü schließen' : 'Menü öffnen'}
+            aria-expanded={isMobileNavOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setIsMobileNavOpen((prev) => !prev)}
+          >
+            <span aria-hidden="true">{isMobileNavOpen ? '×' : '☰'}</span>
+          </button>
           <a href="#kontakt" className="btn btn-sm">
             Angebot anfordern
           </a>
         </div>
+        {isMobileNavOpen ? (
+          <div className="mobile-nav-backdrop" role="presentation" onClick={() => setIsMobileNavOpen(false)}>
+            <div
+              id="mobile-nav"
+              className="mobile-nav"
+              role="dialog"
+              aria-label="Navigation"
+              aria-modal="true"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <a href="#leistungen" onClick={() => setIsMobileNavOpen(false)}>
+                Leistungen
+              </a>
+              <a href="#ablauf" onClick={() => setIsMobileNavOpen(false)}>
+                Ablauf
+              </a>
+              <a href="#galerie" onClick={() => setIsMobileNavOpen(false)}>
+                Galerie
+              </a>
+              <a href="#über-uns" onClick={() => setIsMobileNavOpen(false)}>
+                Über uns
+              </a>
+              <a href="#faq" onClick={() => setIsMobileNavOpen(false)}>
+                FAQ
+              </a>
+              <a className="mobile-cta" href="#kontakt" onClick={() => setIsMobileNavOpen(false)}>
+                Angebot anfordern
+              </a>
+            </div>
+          </div>
+        ) : null}
       </header>
 
       <section id="hero" className="hero">
