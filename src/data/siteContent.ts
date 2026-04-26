@@ -92,4 +92,51 @@ export const siteContent = {
     emailHref: "mailto:Terraclean.ch@gmail.com",
     area: "Kanton Zug sowie Teile von Aargau und Zürich",
   },
+  faq: {
+    title: "Häufige Fragen",
+    description:
+      "Hier finden Sie Antworten auf die häufigsten Fragen rund um Ablauf, Preise und unsere Arbeitsweise.",
+    items: [
+      {
+        question: "In welchen Regionen seid ihr unterwegs?",
+        answer:
+          "Wir arbeiten hauptsächlich im Kanton Zug sowie in Teilen von Aargau und Zürich. Wenn Sie unsicher sind, schicken Sie einfach Ihre Adresse – wir melden uns schnell zurück.",
+      },
+      {
+        question: "Wie läuft eine Offertanfrage ab?",
+        answer:
+          "Sie senden uns das Formular (inkl. 1–2 Fotos) und ein paar Eckdaten. Wir prüfen Material und Verschmutzung, klären bei Bedarf Rückfragen und senden Ihnen eine unverbindliche Offerte mit Preisrahmen und Terminvorschlägen.",
+      },
+      {
+        question: "Was kostet eine Terrassen- oder Einfahrtsreinigung?",
+        answer:
+          "Der Preis hängt vor allem von Fläche, Material, Verschmutzung und Zugänglichkeit ab. Als Orientierung: Kleinflächen starten meist im unteren dreistelligen Bereich. Für eine genaue Offerte helfen uns Fotos und die m²-Angabe.",
+      },
+      {
+        question: "Muss ich vor Ort sein, wenn ihr reinigt?",
+        answer:
+          "Nicht zwingend. Wichtig ist, dass wir Zugang zur Fläche und (falls nötig) zu Wasser/Strom haben. Wir stimmen den Ablauf vorher ab und geben nach Abschluss eine kurze Rückmeldung.",
+      },
+      {
+        question: "Ist Hochdruckreinigung schädlich für Stein oder Holz?",
+        answer:
+          "Bei falscher Technik: ja. Wir arbeiten materialschonend und passen Druck, Abstand und Düse an das Material an. So entfernen wir Verschmutzungen effektiv, ohne die Oberfläche unnötig zu belasten.",
+      },
+      {
+        question: "Wie lange dauert die Reinigung?",
+        answer:
+          "Das hängt von Fläche und Verschmutzung ab. Kleine Terrassen dauern oft 1–2 Stunden, größere Flächen entsprechend länger. Den ungefähren Zeitaufwand nennen wir Ihnen mit der Offerte.",
+      },
+      {
+        question: "Kann ich kurzfristig einen Termin bekommen?",
+        answer:
+          "Oft ja – besonders bei kleineren Flächen. In der Hochsaison kann es aber zu Wartezeiten kommen. Am besten frühzeitig anfragen, dann finden wir den passenden Slot.",
+      },
+      {
+        question: "Was muss ich vorbereiten?",
+        answer:
+          "Wenn möglich: bewegliche Möbel/Topfpflanzen entfernen und die Fläche freiräumen. Den Rest übernehmen wir. Falls besondere Hinweise gelten (Wasseranschluss, empfindliche Bereiche), klären wir das vorher.",
+      },
+    ],
+  },
 };
