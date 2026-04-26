@@ -160,6 +160,7 @@ function App() {
     area: '',
     message: '',
   })
+  const [imageError, setImageError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitState, setSubmitState] = useState({ type: '', message: '' })
 
@@ -173,16 +174,50 @@ function App() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleImageChange = (event) => {
+    const fileCount = event.target.files?.length ?? 0
+
+    if (fileCount === 0) {
+      setImageError('Bitte laden Sie mindestens 1 Bild hoch.')
+      return
+    }
+
+    if (fileCount > 2) {
+      setImageError('Bitte maximal 2 Bilder hochladen.')
+      event.target.value = ''
+      return
+    }
+
+    setImageError('')
+  }
+
   const handleFormSubmit = (event) => {
     event.preventDefault()
     setIsSubmitting(true)
     setSubmitState({ type: '', message: '' })
+    setImageError('')
 
-    fetch('/api/send-offer', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
+    const form = event.currentTarget
+    const fileInput = form.querySelector('input[type="file"][name="bilder"]')
+    const files = fileInput?.files ? Array.from(fileInput.files) : []
+
+    if (files.length < 1) {
+      setIsSubmitting(false)
+      setImageError('Bitte laden Sie mindestens 1 Bild hoch.')
+      return
+    }
+
+    if (files.length > 2) {
+      setIsSubmitting(false)
+      setImageError('Bitte maximal 2 Bilder hochladen.')
+      return
+    }
+
+    const data = new FormData()
+    Object.entries(formData).forEach(([key, value]) => data.append(key, value))
+    files.forEach((file) => data.append('bilder', file))
+
+    fetch('/api/send-offer', { method: 'POST', body: data })
       .then(async (response) => {
         const data = await response.json()
         if (!response.ok) {
@@ -198,6 +233,7 @@ function App() {
           area: '',
           message: '',
         })
+        if (fileInput) fileInput.value = ''
       })
       .catch((error) => {
         setSubmitState({
@@ -460,6 +496,21 @@ function App() {
                 <option>Wände & Mauern</option>
               </select>
               <input name="area" placeholder="Fläche (m2)" value={formData.area} onChange={handleFormChange} />
+            </div>
+            <div className="form-field">
+              <label className="form-label" htmlFor="bilder">
+                Bilder der Fläche (1–2 Bilder)
+              </label>
+              <input
+                id="bilder"
+                type="file"
+                name="bilder"
+                accept="image/*"
+                multiple
+                required
+                onChange={handleImageChange}
+              />
+              {imageError ? <p className="form-status error">{imageError}</p> : null}
             </div>
             <textarea
               name="message"
