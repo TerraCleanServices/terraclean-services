@@ -103,7 +103,7 @@ async function parseRequest(req) {
 
 function parseMultipart(req) {
   return new Promise((resolve, reject) => {
-    const busboy = new Busboy({
+    const busboy = Busboy({
       headers: req.headers,
       limits: {
         files: 2,
