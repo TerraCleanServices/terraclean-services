@@ -1,9 +1,14 @@
-import { useState, type ChangeEvent } from "react";
+import { useId, useState, type ChangeEvent, type FormEvent } from "react";
 import SectionHeading from "../common/SectionHeading";
 import { siteContent } from "../../data/siteContent";
 
 function ContactSection() {
+  const formId = useId();
   const [imageError, setImageError] = useState("");
+  const [status, setStatus] = useState<{
+    type: "idle" | "sending" | "success" | "error";
+    message?: string;
+  }>({ type: "idle" });
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const fileCount = event.target.files?.length ?? 0;
@@ -20,6 +25,54 @@ function ContactSection() {
     }
 
     setImageError("");
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus({ type: "idle" });
+
+    const form = event.currentTarget;
+    const fileInput = form.querySelector<HTMLInputElement>('input[type="file"][name="bilder"]');
+    const files = fileInput?.files ? Array.from(fileInput.files) : [];
+
+    if (files.length < 1) {
+      setImageError("Bitte laden Sie mindestens 1 Bild hoch.");
+      return;
+    }
+
+    if (files.length > 2) {
+      setImageError("Bitte maximal 2 Bilder hochladen.");
+      return;
+    }
+
+    setImageError("");
+    setStatus({ type: "sending" });
+
+    const data = new FormData(form);
+    data.delete("_captcha");
+    data.delete("_subject");
+    data.delete("_template");
+
+    const response = await fetch("/api/send-offer", {
+      method: "POST",
+      body: data,
+    });
+
+    const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+
+    if (!response.ok) {
+      setStatus({
+        type: "error",
+        message: payload?.error || "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      });
+      return;
+    }
+
+    setStatus({
+      type: "success",
+      message: "Vielen Dank! Ihre Anfrage wurde erfolgreich verschickt.",
+    });
+    form.reset();
   };
 
   return (
@@ -53,13 +106,10 @@ function ContactSection() {
 
         <form
           className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-          action={`https://formsubmit.co/${siteContent.contact.email}`}
-          method="POST"
+          id={formId}
+          onSubmit={handleSubmit}
           encType="multipart/form-data"
         >
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_subject" value="Neue Offertanfrage Terraclean Services" />
-          <input type="hidden" name="_template" value="table" />
           <label className="block">
             <span className="mb-1 block text-sm font-medium text-slate-700">Name</span>
             <input
@@ -95,7 +145,7 @@ function ContactSection() {
             </span>
             <input
               type="number"
-              name="flaecheGroesse"
+              name="area"
               min={1}
               className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none ring-brand-green-400 focus:ring-2"
               placeholder="z. B. 45"
@@ -135,10 +185,17 @@ function ContactSection() {
           </label>
           <button
             type="submit"
+            disabled={status.type === "sending"}
             className="w-full rounded-full bg-brand-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-green-400"
           >
-            Offerte anfordern
+            {status.type === "sending" ? "Wird gesendet..." : "Offerte anfordern"}
           </button>
+          {status.type === "success" ? (
+            <p className="text-sm font-medium text-emerald-700">{status.message}</p>
+          ) : null}
+          {status.type === "error" ? (
+            <p className="text-sm font-medium text-red-700">{status.message}</p>
+          ) : null}
         </form>
       </div>
     </section>
