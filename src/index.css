@@ -1,0 +1,533 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: #0f2340;
+  background: #f5f7fb;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px, calc(100% - 2.5rem));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 82px 0;
+}
+
+.section h2 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.9rem, 2.8vw, 2.65rem);
+}
+
+.section-subtitle {
+  max-width: 760px;
+  margin: 14px auto 38px;
+  text-align: center;
+  color: #5f6f84;
+  line-height: 1.6;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e5ebf3;
+  backdrop-filter: blur(7px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+}
+
+.brand img {
+  width: 98px;
+  height: auto;
+}
+
+.nav nav {
+  display: flex;
+  gap: 1.3rem;
+  font-size: 0.92rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #17b765, #2bd16f);
+  color: #fff;
+  padding: 0.9rem 1.45rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-sm {
+  padding: 0.7rem 1.1rem;
+  font-size: 0.86rem;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero {
+  position: relative;
+  padding: 120px 0 130px;
+  background-image:
+    linear-gradient(100deg, rgba(7, 28, 59, 0.86), rgba(8, 34, 74, 0.64)),
+    url('/assets/surface-cleaning-v2.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 10%, rgba(40, 100, 255, 0.2), transparent 40%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 720px;
+}
+
+.pill {
+  display: inline-block;
+  border-radius: 999px;
+  background: rgba(9, 23, 47, 0.65);
+  border: 1px solid rgba(94, 209, 144, 0.52);
+  padding: 0.5rem 0.95rem;
+  font-size: 0.86rem;
+}
+
+.hero h1 {
+  margin: 1rem 0;
+  font-size: clamp(2.1rem, 5vw, 4.1rem);
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  color: #21ca6d;
+}
+
+.hero p {
+  max-width: 640px;
+  color: #d2dfef;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #e8edf5;
+  padding: 1.3rem;
+  box-shadow: 0 8px 20px rgba(15, 35, 64, 0.06);
+}
+
+.service h3,
+.feature h3,
+.compare h3,
+.step h3 {
+  margin: 0 0 0.6rem;
+}
+
+.service-title {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+}
+
+.service-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #e8f7ef;
+  color: #16ad60;
+  display: inline-grid;
+  place-items: center;
+  font-size: 1.02rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.feature-title {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+}
+
+.feature-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(34, 188, 105, 0.25);
+  color: #9ff7c3;
+  display: inline-grid;
+  place-items: center;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.service p,
+.feature p,
+.compare p,
+.step p {
+  margin: 0;
+  color: #5f6f84;
+  line-height: 1.55;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.image-box {
+  min-height: 340px;
+  border-radius: 24px;
+  background:
+    linear-gradient(140deg, rgba(7, 28, 59, 0.24), rgba(20, 185, 101, 0.18)),
+    url('/assets/surface-cleaning-v2.png') center / cover;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+
+.check-list li {
+  margin-top: 0.7rem;
+  color: #2f425a;
+}
+
+.dark {
+  background: linear-gradient(105deg, #061d4e, #07275f);
+  color: #fff;
+}
+
+.dark .section-subtitle,
+.dark p {
+  color: #d4def0;
+}
+
+.dark .feature {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compare-image {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.compare-image > img,
+.compare-after img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.compare-after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.compare-after img {
+  width: 100%;
+  max-width: 100%;
+  transform: none;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #fff;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f2b67;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+
+.compare-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 5;
+}
+
+.image-gallery {
+  align-items: stretch;
+}
+
+.image-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.image-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.image-card p {
+  margin: 0;
+  padding: 1rem 1.1rem 1.2rem;
+  color: #5f6f84;
+}
+
+.tag {
+  position: absolute;
+  top: 12px;
+  padding: 0.24rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  color: #fff;
+}
+
+.tag.left {
+  left: 12px;
+  background: #0f2b67;
+}
+
+.tag.right {
+  right: 12px;
+  background: #22bc69;
+}
+
+.steps .step {
+  text-align: center;
+}
+
+.step span {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid #dce6f4;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #20ba67;
+}
+
+.testimonials {
+  background: #f2f5fa;
+}
+
+.faq {
+  max-width: 860px;
+}
+
+.faq details {
+  border-bottom: 1px solid #e0e7f1;
+  padding: 1rem 0;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq details p {
+  color: #5f6f84;
+  margin: 0.8rem 0 0;
+}
+
+.contact-list {
+  margin-top: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.95rem 0;
+}
+
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  clip-path: inset(9px);
+  transform: scale(1.45);
+  transform-origin: center;
+  flex-shrink: 0;
+}
+
+.contact-item p {
+  margin: 0;
+  color: #435972;
+}
+
+.form h3 {
+  margin-top: 0;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  border: 1px solid #d9e2ef;
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  font: inherit;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+}
+
+.form-status.success {
+  color: #0b8d4a;
+}
+
+.form-status.error {
+  color: #c33535;
+}
+
+.whatsapp {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  background: #1dbf62;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  box-shadow: 0 10px 22px rgba(23, 183, 101, 0.35);
+}
+
+@media (max-width: 1000px) {
+  .two,
+  .three,
+  .four,
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav nav,
+  .btn-sm {
+    display: none;
+  }
+
+  .section {
+    padding: 66px 0;
+  }
+
+  .hero {
+    padding: 100px 0;
+  }
+
+  .two,
+  .three,
+  .four,
+  .split,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
