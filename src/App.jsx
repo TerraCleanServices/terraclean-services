@@ -48,12 +48,36 @@ const processSteps = [
 ]
 
 const faq = [
-  'Wie berechnen sich die Preise?',
-  'Wo genau bieten Sie Ihre Leistungen an?',
-  'Verwenden Sie chemische Reinigungsmittel?',
-  'Wie lange dauert eine Terrassenreinigung?',
-  'Wird meine Holzterrasse durch den Hochdruck beschädigt?',
-  'Muss ich während der Reinigung zu Hause sein?',
+  {
+    question: 'Wie berechnen sich die Preise?',
+    answer:
+      'Der Preis hängt von Fläche (m²), Material, Verschmutzung, Zugänglichkeit und dem gewünschten Ergebnis ab. Für eine genaue Einschätzung reicht meist eine kurze Beschreibung plus 1–2 Fotos – danach erhalten Sie eine transparente Offerte.',
+  },
+  {
+    question: 'Wo genau bieten Sie Ihre Leistungen an?',
+    answer:
+      'Wir sind hauptsächlich im Kanton Zug sowie in Teilen von Aargau und Zürich unterwegs. Wenn Sie unsicher sind, schicken Sie uns kurz Ihre Adresse – wir geben Ihnen schnell Bescheid.',
+  },
+  {
+    question: 'Verwenden Sie chemische Reinigungsmittel?',
+    answer:
+      'In vielen Fällen reicht Wasser in Kombination mit der richtigen Technik aus. Falls ein Reinigungsmittel sinnvoll ist (z.B. bei hartnäckigen Belägen), stimmen wir das materialgerecht ab und informieren Sie im Voraus.',
+  },
+  {
+    question: 'Wie lange dauert eine Terrassenreinigung?',
+    answer:
+      'Das hängt von Fläche, Material und Verschmutzung ab. Nach Sichtung Ihrer Angaben/Fotos können wir den Zeitaufwand gut einschätzen und nennen Ihnen eine realistische Dauer.',
+  },
+  {
+    question: 'Wird meine Holzterrasse durch den Hochdruck beschädigt?',
+    answer:
+      'Mit falscher Technik kann Holz Schaden nehmen. Wir arbeiten materialschonend und passen Vorgehen, Druck und Zubehör an die Oberfläche an, um effektiv zu reinigen, ohne unnötige Belastung.',
+  },
+  {
+    question: 'Muss ich während der Reinigung zu Hause sein?',
+    answer:
+      'Nicht zwingend. Wichtig ist, dass wir Zugang zur Fläche haben. Falls Wasser/Strom benötigt wird, klären wir das im Vorfeld. Nach Abschluss geben wir Ihnen eine kurze Rückmeldung.',
+  },
 ]
 
 const compareItems = [
@@ -375,13 +399,10 @@ function App() {
         <div className="container faq">
           <h2>Häufige Fragen</h2>
           <p className="section-subtitle">Alles, was Sie vorab wissen müssen.</p>
-          {faq.map((question) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>
-                Wir beraten Sie gerne im Detail. Kontaktieren Sie uns und wir beantworten Ihre
-                Frage bezogen auf Ihr Objekt.
-              </p>
+          {faq.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
             </details>
           ))}
         </div>
