@@ -15,6 +15,11 @@ body {
   font-family: Inter, "Segoe UI", sans-serif;
   color: #0f2340;
   background: #f5f7fb;
+  overflow-x: hidden;
+}
+
+.page {
+  overflow-x: hidden;
 }
 
 a {
