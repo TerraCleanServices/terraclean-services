@@ -95,7 +95,7 @@ export const siteContent = {
   faq: {
     title: "Häufige Fragen",
     description:
-      "Hier finden Sie Antworten auf die häufigsten Fragen rund um Ablauf, Preise und unsere Arbeitsweise.",
+      "Hier finden Sie Antworten auf die häufigsten Fragen rund um Ablauf und unsere Arbeitsweise.",
     items: [
       {
         question: "In welchen Regionen seid ihr unterwegs?",
@@ -105,37 +105,37 @@ export const siteContent = {
       {
         question: "Wie läuft eine Offertanfrage ab?",
         answer:
-          "Sie senden uns das Formular (inkl. 1–2 Fotos) und ein paar Eckdaten. Wir prüfen Material und Verschmutzung, klären bei Bedarf Rückfragen und senden Ihnen eine unverbindliche Offerte mit Preisrahmen und Terminvorschlägen.",
+          "Sie senden uns das Formular (inkl. 1–2 Fotos) und ein paar Eckdaten. Wir prüfen Material, Fläche und Verschmutzung, klären bei Bedarf Rückfragen und senden Ihnen eine unverbindliche Offerte.",
       },
       {
         question: "Was kostet eine Terrassen- oder Einfahrtsreinigung?",
         answer:
-          "Der Preis hängt vor allem von Fläche, Material, Verschmutzung und Zugänglichkeit ab. Als Orientierung: Kleinflächen starten meist im unteren dreistelligen Bereich. Für eine genaue Offerte helfen uns Fotos und die m²-Angabe.",
+          "Der Preis hängt von Fläche, Material, Verschmutzung, Zugänglichkeit und dem gewünschten Ergebnis ab. Für eine genaue Einschätzung helfen uns Fotos und die m²-Angabe – danach erhalten Sie eine transparente Offerte.",
       },
       {
         question: "Muss ich vor Ort sein, wenn ihr reinigt?",
         answer:
-          "Nicht zwingend. Wichtig ist, dass wir Zugang zur Fläche und (falls nötig) zu Wasser/Strom haben. Wir stimmen den Ablauf vorher ab und geben nach Abschluss eine kurze Rückmeldung.",
+          "Nicht zwingend. Wichtig ist, dass wir Zugang zur Fläche haben. Falls Wasser/Strom benötigt wird, klären wir das im Vorfeld. Nach Abschluss geben wir Ihnen eine kurze Rückmeldung.",
       },
       {
         question: "Ist Hochdruckreinigung schädlich für Stein oder Holz?",
         answer:
-          "Bei falscher Technik: ja. Wir arbeiten materialschonend und passen Druck, Abstand und Düse an das Material an. So entfernen wir Verschmutzungen effektiv, ohne die Oberfläche unnötig zu belasten.",
+          "Mit falscher Technik kann eine Oberfläche beschädigt werden. Darum arbeiten wir materialschonend und passen Vorgehen, Druck und Zubehör an Stein, Holz oder Verbundflächen an.",
       },
       {
         question: "Wie lange dauert die Reinigung?",
         answer:
-          "Das hängt von Fläche und Verschmutzung ab. Kleine Terrassen dauern oft 1–2 Stunden, größere Flächen entsprechend länger. Den ungefähren Zeitaufwand nennen wir Ihnen mit der Offerte.",
+          "Das hängt von Fläche, Material und Verschmutzung ab. Den ungefähren Zeitaufwand nennen wir Ihnen nach Sichtung der Fotos und Angaben in der Offerte.",
       },
       {
         question: "Kann ich kurzfristig einen Termin bekommen?",
         answer:
-          "Oft ja – besonders bei kleineren Flächen. In der Hochsaison kann es aber zu Wartezeiten kommen. Am besten frühzeitig anfragen, dann finden wir den passenden Slot.",
+          "Je nach Auslastung ist das möglich. Am besten kurz anfragen – wir geben Ihnen schnell Rückmeldung mit möglichen Terminen.",
       },
       {
         question: "Was muss ich vorbereiten?",
         answer:
-          "Wenn möglich: bewegliche Möbel/Topfpflanzen entfernen und die Fläche freiräumen. Den Rest übernehmen wir. Falls besondere Hinweise gelten (Wasseranschluss, empfindliche Bereiche), klären wir das vorher.",
+          "Wenn möglich: bewegliche Möbel, Pflanzen und lose Gegenstände entfernen und die Fläche freiräumen. Alles Weitere stimmen wir im Vorfeld ab (z.B. Zugang, Wasseranschluss, empfindliche Bereiche).",
       },
     ],
   },
